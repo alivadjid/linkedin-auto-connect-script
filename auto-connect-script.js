@@ -35,7 +35,7 @@
     ).filter((button) => button.textContent.trim() === "Connect");
 
     let currentIndex = 0;
-    const clickInterval = 2000; // Adjust this interval as needed (in milliseconds)
+    const clickInterval = 1000; // Adjust this interval as needed (in milliseconds)
 
     function clickNextButton() {
       if (currentIndex < buttonsWithIdAndText.length) {
