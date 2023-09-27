@@ -67,7 +67,7 @@
     button.style.borderRadius = "4px";
     button.style.position = "fixed";
     button.style.zIndex = "99";
-    button.style.bottom = "110px";
+    button.style.bottom = "180px";
     button.style.left = "40px";
 
     button.addEventListener("click", withdrawAll);
