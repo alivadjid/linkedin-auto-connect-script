@@ -32,7 +32,7 @@
     function addAll() {
       const buttonsWithIdAndText = Array.from(
         document.querySelectorAll('button[id^="ember"]')
-      ).filter((button) => button.textContent.trim() === "Connect");
+      ).filter((button) => button.textContent.trim() === "Send without a note");
 
       let currentIndex = 0;
       const clickInterval = 1000; // Adjust this interval as needed (in milliseconds)
