@@ -32,7 +32,7 @@
     function addAll() {
       const buttonsWithIdAndText = Array.from(
         document.querySelectorAll('button[id^="ember"]')
-      ).filter((button) => button.textContent.trim() === "Send without a note");
+      ).filter((button) => button.textContent.trim() === "Connect");
 
       let currentIndex = 0;
       const clickInterval = 1000; // Adjust this interval as needed (in milliseconds)
@@ -41,7 +41,9 @@
         if (currentIndex < buttonsWithIdAndText.length) {
           buttonsWithIdAndText[currentIndex].click();
           Array.from(document.querySelectorAll('button[id^="ember"]'))
-            .filter((button) => button.textContent.trim() === "Send")
+            .filter(
+              (button) => button.textContent.trim() === "Send without a note"
+            )
             .forEach((i) => i.click());
           currentIndex++;
         } else {
