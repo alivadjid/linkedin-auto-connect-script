@@ -7,59 +7,53 @@
 (function () {
   "use strict";
 
-  const { host, pathname } = window.location;
-  if (
-    host === "www.linkedin.com" &&
-    pathname.includes("search/results/people")
-  ) {
+  const { host,pathname } = window.location;
+  if (host === 'www.linkedin.com' && pathname.includes('search/results/people')) {
     const skillsListContainer = document.querySelector(".pvs-list");
 
-    const button = document.createElement("button");
-    button.innerText = "Add all";
-    button.style.backgroundColor = "#51f5a3";
-    button.style.color = "#ffffff";
-    button.style.padding = "20px";
-    button.style.borderRadius = "4px";
-    button.style.position = "fixed";
-    button.style.zIndex = "99";
-    button.style.bottom = "110px";
-    button.style.left = "40px";
+  const button = document.createElement("button");
+  button.innerText = "Add all";
+  button.style.backgroundColor = "#51f5a3";
+  button.style.color = "#ffffff";
+  button.style.padding = "20px";
+  button.style.borderRadius = "4px";
+  button.style.position = "fixed";
+  button.style.zIndex = "99";
+  button.style.bottom = "110px";
+  button.style.left = "40px";
 
-    button.addEventListener("click", addAll);
+  button.addEventListener("click", addAll);
 
-    document.body.append(button);
+  document.body.append(button);
 
-    function addAll() {
-      const buttonsWithIdAndText = Array.from(
-        document.querySelectorAll('button[id^="ember"]')
-      ).filter((button) => button.textContent.trim() === "Connect");
+  function addAll() {
+    const buttonsWithIdAndText = Array.from(
+      document.querySelectorAll('button[id^="ember"]')
+    ).filter((button) => button.textContent.trim() === "Connect");
 
-      let currentIndex = 0;
-      const clickInterval = 1000; // Adjust this interval as needed (in milliseconds)
+    let currentIndex = 0;
+    const clickInterval = 1000; // Adjust this interval as needed (in milliseconds)
 
-      function clickNextButton() {
-        if (currentIndex < buttonsWithIdAndText.length) {
-          buttonsWithIdAndText[currentIndex].click();
-          Array.from(document.querySelectorAll('button[id^="ember"]'))
-            .filter(
-              (button) => button.textContent.trim() === "Send without a note"
-            )
-            .forEach((i) => i.click());
-          currentIndex++;
-        } else {
-          clearInterval(intervalId); // Stop the interval when all buttons have been clicked
-        }
+    function clickNextButton() {
+      if (currentIndex < buttonsWithIdAndText.length) {
+        buttonsWithIdAndText[currentIndex].click();
+        Array.from(document.querySelectorAll('button[id^="ember"]'))
+          .filter((button) => button.textContent.trim() === "Send without a note")
+          .forEach((i) => i.click());
+        currentIndex++;
+      } else {
+        clearInterval(intervalId); // Stop the interval when all buttons have been clicked
       }
-
-      const intervalId = setInterval(clickNextButton, clickInterval);
     }
-  }
 
-  if (
-    host === "www.linkedin.com" &&
-    pathname.includes("invitation-manager/sent")
-  ) {
-    console.log("invitation-manager/sent");
+    const intervalId = setInterval(clickNextButton, clickInterval);
+  }
+  }
+  
+  if (host === 'www.linkedin.com' && pathname.includes('invitation-manager/sent')){
+    console.log('invitation-manager/sent')
+    
+    const skillsListContainer = document.querySelector(".pvs-list");
 
     const button = document.createElement("button");
     button.innerText = "Withdraw All";
@@ -69,32 +63,33 @@
     button.style.borderRadius = "4px";
     button.style.position = "fixed";
     button.style.zIndex = "99";
-    button.style.bottom = "180px";
+    button.style.bottom = "160px";
     button.style.left = "40px";
 
     button.addEventListener("click", withdrawAll);
 
     document.body.append(button);
-
+    
     function withdrawAll() {
-      const buttonsWithIdAndText = Array.from(
-        document.querySelectorAll('button[id^="ember"]')
-      ).filter((e) => e.textContent.trim() === "Withdraw");
-
-      let currentIndex = 0;
-      const clickInterval = 1000;
+      const buttonsWithIdAndText = Array.from(document.querySelectorAll('button[id^="ember"]')).filter((e) => e.textContent.trim() === 'Withdraw')
+      
+      	let currentIndex = 0;
+    	const clickInterval = 1000;
     }
-
+    
+    
     function clickNextButton() {
       if (currentIndex < buttonsWithIdAndText.length) {
         buttonsWithIdAndText[currentIndex].click();
-
+        
         currentIndex++;
       } else {
-        clearInterval(intervalId);
+        clearInterval(intervalId); // Stop the interval when all buttons have been clicked
       }
     }
 
     const intervalId = setInterval(clickNextButton, clickInterval);
   }
+
+  
 })();
